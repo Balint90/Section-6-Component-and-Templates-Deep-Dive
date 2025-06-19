@@ -1,4 +1,14 @@
-<div [class.status]="currentStatus === 'online'">
+<!-- [style]="{
+fontSize: '64px',
+'font-weight': 'bold',
+}"
+[style.fontSize]="'72px'" -->
+<div [class]="{
+    status: true,
+    'status-online': currentStatus === 'online',
+    'status-offline': currentStatus === 'offline',
+    'status-unknown': currentStatus === 'unknown'
+}">
     @if (currentStatus === 'online') {
     <p>Servers are online</p>
     <p>All systems are operational.</p>
