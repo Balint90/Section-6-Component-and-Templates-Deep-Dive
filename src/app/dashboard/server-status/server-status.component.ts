@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -7,10 +7,15 @@ import { Component } from '@angular/core';
   templateUrl: './server-status.component.html',
   styleUrl: './server-status.component.css'
 })
-export class ServerStatusComponent {
+//implement OnInit interface to prevent typos like ngonInit, ngoNinit... etc...
+export class ServerStatusComponent implements OnInit {
   currentStatus: 'online' | 'offline' | 'unknown' = 'online';
 
-  constructor() {
+  constructor() { }
+
+  //Component Lifecycle method
+  //https://angular.dev/guide/components/lifecycle
+  ngOnInit() {
     setInterval(() => {
       const rnd = Math.random();
       if (rnd < 0.5) {
